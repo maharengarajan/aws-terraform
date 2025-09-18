@@ -12,11 +12,6 @@ resource "aws_cloudtrail" "main" {
             type   = "AWS::S3::Object"
             values = ["${aws_s3_bucket.project_bucket.arn}/*"]
         }
-
-        data_resource {
-            type   = "AWS::S3::Bucket"
-            values = ["${aws_s3_bucket.project_bucket.arn}"]
-        }
     }
 
     depends_on = [aws_s3_bucket_policy.cloudtrail_bucket_policy]
