@@ -65,7 +65,7 @@ resource "aws_security_group" "ec2_sg" {
 
     # Allw outbound HTTPS for s3 and cloudwatch
     egress {
-        from_port   = 443
+        from_port   = 443    # 443 for s3 and other AWS services
         to_port     = 443
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
@@ -73,7 +73,7 @@ resource "aws_security_group" "ec2_sg" {
 
     # Allow outbound HTTP for updates and other services
     egress {
-        from_port   = 80
+        from_port   = 80   # 80 for HTTP traffic internet access
         to_port     = 80
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
